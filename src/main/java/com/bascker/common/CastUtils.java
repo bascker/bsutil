@@ -12,6 +12,25 @@ import java.util.Objects;
 public class CastUtils {
 
     /**
+     * 可迭代类型的 String 表示
+     * @param iterable
+     * @param seperator
+     * @param <T>
+     * @return
+     */
+    public static <T> String toString(final Iterable<T> iterable, final String seperator) {
+        final StringBuilder sb = new StringBuilder();
+        for (T item : iterable) {
+            sb.append(item).append(seperator);
+        }
+        if (sb.length() >= seperator.length()) {
+            sb.replace(sb.length() - seperator.length(), sb.length(), Constant.EMPTY);
+        }
+
+        return sb.toString();
+    }
+
+    /**
      * 转为 String 类型，默认值为空串
      * @param object
      * @return
