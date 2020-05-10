@@ -5,20 +5,23 @@ package com.bascker.common;
  */
 public enum Operator {
 
-    ADD("+"), SUB("-"), MUL("*"), DEV("/"),
-    BRACKET_LEFT("("), BRACKET_RIGHT(")"),
-    BRACKET_MID_LEFT("["), BRACKET_MID_RIGHT("]"),
-    BRACE_LEFT("{"), BRACE_RIGHT("}");
+    ADD('+'), SUB('-'), MUL('*'), DEV('/'),
+    BRACKET_LEFT('('), BRACKET_RIGHT(')'),
+    BRACKET_MID_LEFT('['), BRACKET_MID_RIGHT(']'),
+    BRACE_LEFT('{'), BRACE_RIGHT('}');
 
-    private String op;
+    private char op;
 
-    Operator(String op) {
+    Operator(char op) {
         this.op = op;
     }
 
-    public String val() {
+    public char val() {
         return op;
     }
 
-
+    @Override
+    public String toString() {
+        return String.valueOf(op);
+    }
 }
