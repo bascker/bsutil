@@ -1,14 +1,13 @@
 package com.bascker.common;
 
+import java.util.Arrays;
+
 /**
  * 运算符
  */
 public enum Operator {
 
-    ADD('+'), SUB('-'), MUL('*'), DEV('/'),
-    BRACKET_LEFT('('), BRACKET_RIGHT(')'),
-    BRACKET_MID_LEFT('['), BRACKET_MID_RIGHT(']'),
-    BRACE_LEFT('{'), BRACE_RIGHT('}');
+    ADD('+'), SUB('-'), MUL('*'), DEV('/');
 
     private char op;
 
@@ -24,4 +23,9 @@ public enum Operator {
     public String toString() {
         return String.valueOf(op);
     }
+
+    public static boolean isOperator(char ch) {
+        return Arrays.stream(Operator.values()).map(Operator::val).allMatch(op -> op.equals(ch));
+    }
+
 }

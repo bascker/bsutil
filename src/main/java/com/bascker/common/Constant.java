@@ -12,6 +12,18 @@ public class Constant {
 
     public static final String UTF8 = "UTF-8";
 
+    public static final char BRACKET_LEFT = '(';
+
+    public static final char BRACKET_RIGHT = ')';
+
+    public static final char BRACKET_MID_LEFT = '[';
+
+    public static final char BRACKET_MID_RIGHT = ']';
+
+    public static final char BRACE_LEFT = '{';
+
+    public static final char BRACE_RIGHT = '}';
+
     // -------------------------
     // Number Const
     // -------------------------
