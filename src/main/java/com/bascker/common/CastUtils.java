@@ -20,9 +20,13 @@ public class CastUtils {
      */
     public static <T> String toString(final Iterable<T> iterable, final String seperator) {
         final StringBuilder sb = new StringBuilder();
-        for (T item : iterable) {
-            sb.append(item).append(seperator);
+        // Avoid NPE
+        if (Objects.isNull(iterable)) {
+            return StringUtils.EMPTY;
         }
+
+        iterable.forEach(item -> sb.append(item).append(seperator));
+
         if (sb.length() >= seperator.length()) {
             sb.replace(sb.length() - seperator.length(), sb.length(), Constant.EMPTY);
         }
@@ -66,7 +70,7 @@ public class CastUtils {
      */
     public static double castDouble(final Object object, final double defaultValue) {
         final String strValue = castString(object);
-        return StringUtils.isNotEmpty(strValue) ? Double.valueOf(strValue) : defaultValue;
+        return StringUtils.isNotEmpty(strValue) ? Double.parseDouble(strValue) : defaultValue;
     }
 
     /**
@@ -86,7 +90,7 @@ public class CastUtils {
      */
     public static long castLong(final Object object, final long defaultValue) {
         final String strValue = castString(object);
-        return StringUtils.isNotEmpty(strValue) ? Long.valueOf(strValue) : defaultValue;
+        return StringUtils.isNotEmpty(strValue) ? Long.parseLong(strValue) : defaultValue;
     }
 
     /**
@@ -105,7 +109,7 @@ public class CastUtils {
      */
     public static int castInt(final Object object, final int defaultValue) {
         final String strValue = castString(object);
-        return StringUtils.isNotEmpty(strValue) ? Integer.valueOf(strValue) : defaultValue;
+        return StringUtils.isNotEmpty(strValue) ? Integer.parseInt(strValue) : defaultValue;
     }
 
     /**
@@ -125,7 +129,7 @@ public class CastUtils {
      */
     public static boolean castBoolean(final Object object, final boolean defaultValue) {
         final String strValue = castString(object);
-        return StringUtils.isNotEmpty(strValue) ? Boolean.valueOf(strValue) : defaultValue;
+        return StringUtils.isNotEmpty(strValue) ? Boolean.parseBoolean(strValue) : defaultValue;
     }
 
     private CastUtils() {}
