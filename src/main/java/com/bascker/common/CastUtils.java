@@ -11,6 +11,10 @@ import java.util.Objects;
  */
 public class CastUtils {
 
+    public static <T> String toString(final Iterable<T> iterator) {
+        return toString(iterator, Constant.EMPTY);
+    }
+
     /**
      * 可迭代类型的 String 表示
      * @param iterable
